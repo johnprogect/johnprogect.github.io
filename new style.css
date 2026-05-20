@@ -1,0 +1,86 @@
+/* === general styles === */
+body {
+  background-color: rgba(73, 102, 81, 1);
+  margin: 5%;
+}
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  font-family: "Love Ya Like A Sister", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p, h2, li {
+  font-family: "Jim Nightshade", cursive;
+  font-weight: 400;
+  font-style: normal;
+    font-size:2rem;
+}
+h2{
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+/* === div with black color === */
+div {
+  background-color: rgba(0, 0, 0, 1);
+  color:lightblue;
+    border-radius: 10px;
+  padding: 15px
+}
+
+
+/* === images properties === */
+img {
+  width: 50%;
+  height: auto;
+  box-shadow: 12px 12px 2px 1px rgb(77 77 77 / 0.5);
+  transition: transform 5s ease;
+}
+
+img:hover {
+  transform: scale(1.5);
+}
+
+
+/* === new: box for pairs «image + text» === */
+.pair {
+  display: flex;               /* включает flex-контекст */
+  align-items: flex-start;     /* выравнивание по верхнему краю */
+  gap: 30px;                   /* расстояние между картинкой и описанием */
+  margin-bottom: 40px;         /* отступ между секциями */
+}
+
+/* Чтобы внутренний div в паре занимал оставшееся пространство */
+.pair div {
+  flex: 1;                     /* растягивается на всю доступную ширину */
+  /* Если нужна фиксированная ширина, замените flex: 1 на width: 300px */
+}
+
+/* Отключаем transform: scale для изображений внутри .pair,
+   чтобы при наведении они не вылезали за границы (по желанию) */
+.pair img {
+  /* можно оставить стандартный hover, но осторожно с масштабом */
+  /* Если хотите, чтобы увеличение не ломало верстку, добавьте: */
+  transform-origin: left center; /* увеличение будет от левого края */
+}
+
+ul {
+  list-style: none;           /* убираем стандартные маркеры */
+  padding-left: 0;
+}
+
+li {
+  padding-left: 1.5em;
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+li::before {
+  content: "🏔️";             /* или "•" / "›" */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 0.9em;
+}
