@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
 <title>Design World — Explore New Ideas</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +12,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--bg:#000;--fg:#fff;--pad-x:clamp(20px,6.95vw,120px)}
 html,body{background:#000;color:#fff;font-family:'Poppins',sans-serif;-webkit-font-smoothing:antialiased}
-html{scroll-behavior:smooth;overflow-x:hidden}
+html{scroll-behavior:smooth;overflow-x:hidden;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 .hero{position:relative;width:100%;height:100vh;height:100svh;min-height:520px;overflow:hidden;background:#000}
 #scene{position:absolute;inset:0;width:100%;height:100%;display:block;cursor:grab;touch-action:none}
 #scene.dragging{cursor:grabbing}
@@ -25,11 +26,9 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 .nav-links{display:flex;gap:clamp(20px,4.1vw,60px);list-style:none}
 .nav-links a{color:#fff;text-decoration:none;font-size:15px;font-weight:500;position:relative;cursor:pointer}
 .nav-links a::after{content:'';position:absolute;left:0;right:0;bottom:-4px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .35s ease}
-.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
 .arrows{position:absolute;top:18.9%;left:76.7%;display:flex;gap:32px;transform:translate(-19px,-50%)}
 .arrow{width:38px;height:38px;border-radius:50%;border:2.5px solid #fff;background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer;transition:background .25s,color .25s}
 .arrow svg{width:18px;height:18px}
-.arrow:hover{background:#fff;color:#000}
 .dots{position:absolute;right:calc(var(--pad-x) - 7px);top:49.4%;transform:translateY(-50%);display:flex;flex-direction:column;gap:33px}
 .dot{width:14px;height:14px;border-radius:50%;border:2px solid #fff;background:#fff;cursor:pointer;transition:background .25s;padding:0}
 .dot.active{background:transparent}
@@ -37,30 +36,36 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 .tagline strong{font-weight:700;display:block}
 .cta-row{position:absolute;left:45.6%;right:-1vw;top:88.7%;transform:translateY(-50%);display:flex;align-items:center}
 .cta{flex:none;padding:0 15px;height:48px;display:inline-flex;align-items:center;border:1.5px solid rgba(255,255,255,.85);border-radius:6px;background:rgba(0,0,0,.15);color:#fff;font-size:14px;font-weight:400;text-decoration:none;cursor:pointer;transition:background .25s,color .25s}
-.cta:hover{background:#fff;color:#000}
 .cta-line{flex:1;height:1.5px;background:rgba(255,255,255,.8);min-width:40px}
 .count{flex:none;font-size:clamp(140px,19.8vw,360px);font-weight:400;line-height:1;letter-spacing:-0.02em;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.9);transform:translateY(6%);user-select:none}
 .loader{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.6;transition:opacity .6s}
 .loader.done{opacity:0}
-.face{position:absolute;transform:translate(-50%,-50%);height:44px;padding:0 20px;border-radius:999px;border:1.5px solid rgba(255,255,255,.9);background:rgba(0,0,0,.35);backdrop-filter:blur(6px);color:#fff;font:500 14px 'Poppins',sans-serif;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
-.face:hover{background:#fff;color:#000}
+.face{position:absolute;transform:translate(-50%,-50%);height:44px;padding:0 20px;border-radius:999px;border:1.5px solid rgba(255,255,255,.9);background:rgba(0,0,0,.35);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:#fff;font:500 14px 'Poppins',sans-serif;white-space:nowrap;cursor:pointer;transition:background .25s,color .25s}
 .cards{position:relative;padding:clamp(64px,10vh,120px) var(--pad-x);background:#000}
 .cards h2{max-width:1280px;margin:0 auto clamp(32px,6vh,56px);font-size:clamp(28px,3.4vw,52px);font-weight:300;line-height:1.15;letter-spacing:-0.01em}
 .cards h2 strong{display:block;font-weight:700}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px;max-width:1280px;margin:0 auto}
 .card{border:1.5px solid rgba(255,255,255,.35);border-radius:6px;padding:28px;display:flex;flex-direction:column;gap:14px;min-height:280px;transition:background .5s,color .5s,border-color .3s}
-.card:hover{border-color:#fff}
 .card.hl{background:#fff;color:#000}
 .card h3{font-size:22px;font-weight:700}
 .card .d{font-size:14px;font-weight:300;opacity:.7}
-.out{font-size:clamp(24px,2.2vw,32px);font-weight:300;line-height:1.2;min-height:2.4em;margin-top:auto}
+.out{font-size:clamp(17px,1.5vw,21px);font-weight:500;line-height:1.35;min-height:4.1em;margin-top:auto}
 .out b{font-weight:700}
 .btns{display:flex;flex-wrap:wrap;gap:10px}
 .btn{height:40px;padding:0 14px;border:1.5px solid rgba(255,255,255,.85);border-radius:6px;background:transparent;color:#fff;font:400 14px 'Poppins',sans-serif;cursor:pointer;transition:background .25s,color .25s}
-.btn:hover{background:#fff;color:#000}
 .card.hl .btn{color:#000;border-color:#000}
+@media (hover:hover){
+.nav-links a:hover::after{transform:scaleX(1);transform-origin:left}
+.arrow:hover,.cta:hover,.face:hover,.btn:hover{background:#fff;color:#000}
+.card:hover{border-color:#fff}
 .card.hl .btn:hover{background:#000;color:#fff}
-@media (max-width:900px),(max-aspect-ratio:1/1){
+}
+.arrow:active,.cta:active,.face:active,.btn:active{background:#fff;color:#000}
+.btn,.arrow,.dot,.face,.cta{touch-action:manipulation}
+.dot{position:relative}
+.dot::after{content:'';position:absolute;inset:-9px}
+@media (pointer:coarse){#scene{touch-action:pan-y}.btn{height:44px}}
+@media (max-width:767px),(max-aspect-ratio:1/1){
 .arrows{left:auto;right:var(--pad-x);top:15%;transform:translateY(-50%);gap:14px}
 .tagline{bottom:clamp(150px,20vh,220px)}
 .cta-row{left:var(--pad-x);right:-3vw;top:auto;bottom:24px;transform:none}
@@ -73,8 +78,11 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 .dot{width:10px;height:10px}
 .cta-row{right:-8vw}
 .count{font-size:120px}
+.card{padding:22px;min-height:0}
+.face{height:38px;padding:0 16px;font-size:13px}
 }
 @media (max-width:420px){.nav-links li:nth-child(2){display:none}}
+@media (max-width:767px) and (max-height:640px),(max-aspect-ratio:1/1) and (max-height:640px){.tagline{display:none}}
 </style>
 <script type="importmap">
 {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}
@@ -107,9 +115,65 @@ html{scroll-behavior:smooth;overflow-x:hidden}
 
 <section class="cards" id="cards">
   <h2>Pick a category.<strong>Get an idea.</strong></h2>
-  <div class="grid" id="grid"></div>
+  <div class="grid" id="grid">
+    <article class="card" id="card-0">
+      <h3>Games</h3>
+      <p class="d">A random game from the top lists.</p>
+      <p class="out" id="randomgames" aria-live="polite"></p>
+      <div class="btns">
+      <button class="btn" onclick="chooseGame_2010_2019()">2010–2019</button>
+      <button class="btn" onclick="chooseGame_2020_2026()">2020–2026</button>
+      </div>
+    </article>
+    <article class="card" id="card-1">
+      <h3>Books</h3>
+      <p class="d">A random book from the world library.</p>
+      <p class="out" id="randombook" aria-live="polite"></p>
+      <div class="btns">
+      <button class="btn" onclick="generateBook()">Get book</button>
+      </div>
+    </article>
+    <article class="card" id="card-2">
+      <h3>Cuisine</h3>
+      <p class="d">A random cuisine from the top-rated ones.</p>
+      <p class="out" id="randomcuisine" aria-live="polite"></p>
+      <div class="btns">
+      <button class="btn" onclick="generateCuisine()">Get cuisine</button>
+      </div>
+    </article>
+    <article class="card" id="card-3">
+      <h3>Travel</h3>
+      <p class="d">An ideal country for each season.</p>
+      <p class="out" id="randomtravel" aria-live="polite"></p>
+      <div class="btns">
+      <button class="btn" onclick="choose_travel_jan_feb()">Jan–Feb</button>
+      <button class="btn" onclick="choose_travel_mar_apr()">Mar–Apr</button>
+      <button class="btn" onclick="choose_travel_may_jun()">May–Jun</button>
+      <button class="btn" onclick="choose_travel_jul_aug()">Jul–Aug</button>
+      <button class="btn" onclick="choose_travel_sep_oct()">Sep–Oct</button>
+      <button class="btn" onclick="choose_travel_nov_dec()">Nov–Dec</button>
+      </div>
+    </article>
+    <article class="card" id="card-4">
+      <h3>Self-development</h3>
+      <p class="d">A small step to try today.</p>
+      <p class="out" id="random_self_dev_idea" aria-live="polite"></p>
+      <div class="btns">
+      <button class="btn" onclick="choose_selfdevelopment()">Get idea</button>
+      </div>
+    </article>
+    <article class="card" id="card-5">
+      <h3>Random</h3>
+      <p class="d">One idea from any category.</p>
+      <p class="out" id="total_random" aria-live="polite"></p>
+      <div class="btns">
+      <button class="btn" onclick="choose_randomQuestions()">Questions</button>
+      </div>
+    </article>
+  </div>
 </section>
 
+<script src="scrip.js"></script>
 <script type="module">
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
@@ -183,6 +247,7 @@ void main(){
   vNormal = normalize(normalMatrix * normal);
   vEye = normalize(mvPos.xyz);
 }`;
+const LOOP = matchMedia('(pointer:coarse)').matches ? 10 : 16;
 const frag = `uniform sampler2D uTexture; uniform vec2 uResolution; uniform float uBackside;
 uniform float uIorR, uIorY, uIorG, uIorC, uIorB, uIorP;
 uniform float uRefractPower, uChromatic, uSaturation, uShininess, uDiffuseness, uFresnelPower;
@@ -205,8 +270,8 @@ void main(){
   vec3 rB = refract(eye, n, 1.0 / uIorB);
   vec3 rP = refract(eye, n, 1.0 / uIorP);
   vec3 color = vec3(0.0);
-  for (int i = 0; i < 16; i++) {
-    float slide = float(i) / 16.0 * 0.045;
+  for (int i = 0; i < ${LOOP}; i++) {
+    float slide = float(i) / ${LOOP}.0 * 0.045;
     float r = T(uv + rR.xy * (uRefractPower + slide * 1.0) * uChromatic).x * 0.5;
     vec3 ty = T(uv + rY.xy * (uRefractPower + slide * 1.0) * uChromatic);
     float y = (ty.x * 2.0 + ty.y * 2.0 - ty.z) / 6.0;
@@ -220,7 +285,7 @@ void main(){
                   g + (2.0 * y + 2.0 * c - p) / 3.0,
                   b + (2.0 * c + 2.0 * p - y) / 3.0);
   }
-  color /= 16.0;
+  color /= ${LOOP}.0;
   float luma = dot(color, vec3(0.2125, 0.7154, 0.0721));
   color = mix(vec3(luma), color, uSaturation);
   float back = uBackside > 0.5 ? 1.0 : 0.0;
@@ -250,7 +315,8 @@ function makeGlass(back) {
 const frontMat = makeGlass(false), backMat = makeGlass(true);
 
 /* ---------- render targets ---------- */
-const rtOpts = { type: THREE.HalfFloatType, depthBuffer: true };
+const hf = renderer.extensions.has('EXT_color_buffer_float') || renderer.extensions.has('EXT_color_buffer_half_float');
+const rtOpts = { type: hf ? THREE.HalfFloatType : THREE.UnsignedByteType, depthBuffer: true };
 const rtBack = new THREE.WebGLRenderTarget(1, 1, rtOpts);
 const rtFront = new THREE.WebGLRenderTarget(1, 1, rtOpts);
 backMat.uniforms.uTexture.value = rtBack.texture;
@@ -296,9 +362,12 @@ new GLTFLoader().load(MODEL_URL, gltf => {
 }, undefined, e => { console.warn('Model failed, using fallback', e); useFallback(); });
 
 /* ---------- layout ---------- */
-function layout() {
+let lw = 0, lh = 0, ld = 0;
+function layout(force) {
   const W = hero.clientWidth, H = hero.clientHeight;
   const dpr = Math.min(window.devicePixelRatio || 1, 2);
+  if (!force && W === lw && H === lh && dpr === ld) return;
+  lw = W; lh = H; ld = dpr;
   renderer.setPixelRatio(dpr);
   renderer.setSize(W, H, false);
   camera.aspect = W / H; camera.updateProjectionMatrix();
@@ -312,7 +381,8 @@ function layout() {
   pivot.position.set((sx - 0.5) * visW, (0.5 - sy) * visH, 0);
   const px = Math.min(H * 0.44, W * (mobile ? 0.45 : 0.29));
   pivot.scale.setScalar((px / H) * visH);
-  faceBtn.style.left = sx * 100 + '%'; faceBtn.style.top = sy * 100 + '%';
+  faceBtn.style.left = sx * 100 + '%';
+  faceBtn.style.top = mobile ? sy * H + px / 2 + 34 + 'px' : sy * 100 + '%';
 }
 
 /* ---------- interaction ---------- */
@@ -348,44 +418,7 @@ canvas.addEventListener('pointerup', endDrag);
 canvas.addEventListener('pointercancel', endDrag);
 
 /* ---------- categories: one per cube face ---------- */
-const pick = a => a[Math.floor(Math.random() * a.length)];
-const CATS = [
-  { name: 'Games', text: 'A random game from the top lists.', sets: {
-    '2010–2019': ['The Witcher 3', 'Dark Souls III', 'Celeste', 'Red Dead Redemption 2', 'Portal 2', 'Hollow Knight', 'Stardew Valley', 'Disco Elysium', 'Bloodborne', 'The Last of Us'],
-    '2020–2026': ['Hades', 'Elden Ring', "Baldur's Gate 3", 'Balatro', 'Hollow Knight: Silksong', 'Clair Obscur: Expedition 33', 'Cyberpunk 2077', 'Hi-Fi Rush', 'Tears of the Kingdom'] } },
-  { name: 'Books', text: 'A random book from the world library.', sets: {
-    'Get book': ['One Hundred Years of Solitude', 'Crime and Punishment', 'The Master and Margarita', 'Pride and Prejudice', 'Don Quixote', 'Beloved', 'The Brothers Karamazov', 'Things Fall Apart', 'Norwegian Wood', "Sophie's World"] } },
-  { name: 'Cuisine', text: 'A random cuisine from the top-rated ones.', sets: {
-    'Get cuisine': ['Italian', 'Japanese', 'Thai', 'Mexican', 'Indian', 'Georgian', 'Greek', 'Vietnamese', 'Lebanese', 'Korean', 'Ethiopian'] } },
-  { name: 'Travel', text: 'An ideal country for each season.', sets: {
-    'Jan–Feb': ['Thailand', 'Austria', 'Costa Rica', 'Morocco', 'Sri Lanka'],
-    'Mar–Apr': ['Japan', 'Portugal', 'Jordan', 'Turkey', 'Oman'],
-    'May–Jun': ['Greece', 'Croatia', 'Norway', 'Spain', 'Slovenia'],
-    'Jul–Aug': ['Iceland', 'Canada', 'Albania', 'Switzerland', 'Sweden'],
-    'Sep–Oct': ['Georgia', 'Italy', 'Peru', 'Egypt', 'Hungary'],
-    'Nov–Dec': ['Mexico', 'Vietnam', 'Germany', 'UAE', 'Finland'] } },
-  { name: 'Self-development', text: 'A small step to try today.', sets: {
-    'Get idea': ['Learn ten words in a new language', 'Walk 30 minutes without your phone', 'Write three pages by hand', 'Cook one new recipe', 'Meditate for ten minutes', 'Read twenty pages', 'Declutter one drawer', "Message a friend you haven't talked to in a while", 'Plan tomorrow tonight', 'Learn one new keyboard shortcut'] } },
-  { name: 'Random', text: 'One idea from any category.', sets: { 'Surprise me': null } }
-];
-
-const grid = document.getElementById('grid');
-CATS.forEach((c, i) => {
-  const el = document.createElement('article');
-  el.className = 'card'; el.id = 'card-' + i;
-  el.innerHTML = `<h3>${c.name}</h3><p class="d">${c.text}</p><p class="out" aria-live="polite"></p><div class="btns"></div>`;
-  const out = el.querySelector('.out');
-  Object.entries(c.sets).forEach(([label, list]) => {
-    const b = document.createElement('button');
-    b.className = 'btn'; b.textContent = label;
-    b.onclick = () => {
-      if (list) out.innerHTML = `<b>${pick(list)}</b>`;
-      else { const o = pick(CATS.slice(0, 5)); out.innerHTML = `${o.name}: <b>${pick(pick(Object.values(o.sets)))}</b>`; }
-    };
-    el.querySelector('.btns').append(b);
-  });
-  grid.append(el);
-});
+const CATS = ['Games', 'Books', 'Cuisine', 'Travel', 'Self-development', 'Random'].map(name => ({ name }));
 
 /* cube local axes -> categories: +Z, +X, -Z, -X, +Y, -Y */
 const AXES = [[0, 0, 1], [1, 0, 0], [0, 0, -1], [-1, 0, 0], [0, 1, 0], [0, -1, 0]].map(a => new THREE.Vector3(...a));
@@ -403,6 +436,10 @@ const ICONS = [
   g => { g.moveTo(50, 84); g.lineTo(50, 44); g.moveTo(50, 62); g.quadraticCurveTo(22, 64, 20, 36); g.quadraticCurveTo(46, 36, 50, 62); g.moveTo(50, 50); g.quadraticCurveTo(52, 22, 80, 20); g.quadraticCurveTo(80, 46, 50, 50); g.moveTo(32, 84); g.lineTo(68, 84); },
   g => { g.roundRect(18, 18, 64, 64, 12); [[34, 34], [66, 34], [50, 50], [34, 66], [66, 66]].forEach(q => C(g, q[0], q[1], 1)); }
 ];
+if (!CanvasRenderingContext2D.prototype.roundRect) CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+  this.moveTo(x + r, y); this.arcTo(x + w, y, x + w, y + h, r); this.arcTo(x + w, y + h, x, y + h, r);
+  this.arcTo(x, y + h, x, y, r); this.arcTo(x, y, x + w, y, r); this.closePath();
+};
 function iconTex(draw) {
   const c = document.createElement('canvas'); c.width = c.height = 512;
   const g = c.getContext('2d'); g.scale(5.12, 5.12);
@@ -519,8 +556,8 @@ function frame(now) {
   }
 }
 
-window.addEventListener('resize', layout);
-document.fonts.addEventListener('loadingdone', layout);
+window.addEventListener('resize', () => layout());
+document.fonts.addEventListener('loadingdone', () => layout(true));
 Promise.race([
   Promise.all([document.fonts.load('800 100px Poppins'), document.fonts.ready]),
   new Promise(r => setTimeout(r, 2500))
