@@ -521,7 +521,7 @@ function generateCuisine() {
 }
 function choose_randomQuestion(){
     const randomIndex = Math.floor(Math.random() * randomQuestions.length);
-    const r_question  = randomQuestions [randomIndex];
+    const r_question  = randomQuestions[randomIndex];
     document.getElementById('total_random').innerText = r_question;
     }
 //animate-ping-button
