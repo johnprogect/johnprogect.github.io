@@ -519,7 +519,7 @@ function generateCuisine() {
     //    document.getElementById('randomcuisine').innerText = cuisine;
     document.getElementById('randomcuisine').innerText = `${randomcuisine.cuisine} - ${randomcuisine.dish}`;
 }
-function choose_randomQuestion(){
+function choose_randomQuestions(){
     const randomIndex = Math.floor(Math.random() * randomQuestions.length);
     const r_question  = randomQuestions[randomIndex];
     document.getElementById('total_random').innerText = r_question;
